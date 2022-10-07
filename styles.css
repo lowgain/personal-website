@@ -155,6 +155,7 @@ hr {
   .bonsai-container {
     grid-column: 4;
     grid-row: 3;
+    overflow: hidden;
   }
 
   #bonsai {

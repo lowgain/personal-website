@@ -38,6 +38,6 @@ async function displayBonsai() {
   let response = await fetch("./data.json");
   let data = await response.json();
 
-  document.getElementById("bonsai").innerHTML = data.bonsais;
+  document.getElementById("bonsai").innerHTML = data.bonsais[Math.floor(Math.random() * data.bonsais.length)];
 }
 displayBonsai();
