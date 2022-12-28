@@ -35,8 +35,8 @@ timer(displayDate, 5000);
 //
 
 async function displayBonsai() {
-  let response = await fetch("./data.json");
-  let data = await response.json();
+  let data = await fetch("./data.json")
+    .then(response => response.json());
 
   document.getElementById("bonsai").innerHTML = data.bonsais[Math.floor(Math.random() * data.bonsais.length)];
 }
