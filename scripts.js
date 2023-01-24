@@ -1,12 +1,7 @@
-//
-// Make a number binary
-//
+// Get Element
+const $ = element => document.getElementById(element);
 
-let makeBin = (num, pad) => num.toString(2).padStart(pad, "0");
-
-//
 // Make a timer
-//
 
 function timer(func, interval) {
   func();
@@ -18,15 +13,21 @@ function timer(func, interval) {
 //
 
 function displayDate() {
-  let date = new Date();
-  let hour = date.getHours();
+  const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+  const weekdays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat' ];
+  const date = new Date();
+  const hour = date.getHours();
+  const minute = date.getMinutes().toString().padStart(2, '0');
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const weekday = weekdays[date.getDay()];
 
   if (hour == 0) { hour = 12 };
   if (hour > 12) { hour -= 12};
 
-  document.getElementById("clock").innerHTML = makeBin(hour, 4) + ":" + makeBin(date.getMinutes(), 6);
-  document.getElementById("date").innerHTML = makeBin(date.getMonth() + 1, 4) + ", " + makeBin(date.getDate(), 5);
-  document.getElementById("day").innerHTML = makeBin(date.getDay() + 1, 3);
+  $("clock").innerHTML = `${hour}:${minutes}`;
+  $("date").innerHTML = month + ", " + day;
+  $("day").innerHTML = weekday;
 }
 timer(displayDate, 5000);
 
@@ -38,6 +39,6 @@ async function displayBonsai() {
   let data = await fetch("./bonsais.json")
     .then(response => response.json());
 
-  document.getElementById("bonsai").innerHTML = data.bonsais[Math.floor(Math.random() * data.bonsais.length)];
+  $("bonsai").innerHTML = data.bonsais[Math.floor(Math.random() * data.bonsais.length)];
 }
 displayBonsai();
