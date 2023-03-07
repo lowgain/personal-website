@@ -146,6 +146,8 @@ section {
     overflow: hidden;
   }
 
+  #bonsai { font-size: 1rem; }
+
   .date-wrapper {
     grid-column: 3/5;
     grid-row: 2;
