@@ -99,10 +99,6 @@ section {
   font-size: 1.2rem;
   color: var(--green);
 }
-
-.hero { grid-column: 1/3; }
-
-.weather-wrapper { grid-column: 1/3; }
  
 @media only screen and ( min-width: 1200px ) {
 
