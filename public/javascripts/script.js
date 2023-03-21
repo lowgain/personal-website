@@ -23,11 +23,19 @@ function displayDate() {
   const weekday = weekdays[date.getDay()];
   let amPm;
 
-  if (hour == 0) { hour = 12 }
-  else { hour -= 12 };
-
-  if (hour < 12) { amPm = 'am' }
-  else { amPm = 'pm' };
+  switch(true) {
+    case hour == 0:
+      hour = 12;
+      amPm = 'am';
+      break;
+    case hour < 12:
+      amPm = 'am';
+      break;
+    case hour > 12:
+      hour -= 12;
+      amPm = 'pm';
+      break;
+  };
 
   $("clock").innerHTML = `${hour}:${minute} ${amPm}`;
   $("date").innerHTML = `${weekday} ${month}, ${day}`;
