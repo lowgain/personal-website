@@ -35,7 +35,7 @@ function displayDate() {
       hour -= 12;
       amPm = 'pm';
       break;
-  };
+  }
 
   $("clock").innerHTML = `${hour}:${minute} ${amPm}`;
   $("date").innerHTML = `${weekday} ${month}, ${day}`;
