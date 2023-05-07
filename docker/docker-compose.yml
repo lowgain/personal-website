@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    image: 'node:latest'
+    user: 'node'
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+      - PORT=80
+    ports:
+      - 80:80
+    volumes:
+      - ../:/home/node/app
+    command: 'npm start'
+    restart: unless-stopped
