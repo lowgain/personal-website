@@ -3,12 +3,12 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-COPY ["../package.json", "../package-lock.json", "./"]
+COPY ["package.json", "package-lock.json", "./"]
 
 RUN npm i --production
 
-COPY .. .
+COPY . .
 
 EXPOSE 80
 
-CMD ["node", "server.js"]
+CMD ["node", "bin/www"]
