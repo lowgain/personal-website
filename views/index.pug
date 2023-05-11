@@ -60,16 +60,14 @@ block content
       a(href="https://hub.docker.com/") Docker Hub
 
     section.weather-wrapper
-      img#weather_icon
-      span#weather_desc 
+      img#weather_icon(src=`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`)
+      span#weather_desc= weather.weather[0].description 
       dl#weather_info
         dt Temp
-        dd#temp
+        dd#temp #{Math.round(weather.main.temp)}&deg;F
         dt Humidity
-        dd#humidity
+        dd#humidity= weather.main.humidity + "%"
         dt Wind Spd
-        dd#windspeed 
+        dd#windspeed= Math.round(weather.wind.speed) + " mph"
         dt Wind Dir
-        dd#wind_direction 
-
-  script(src='/javascripts/weather.js')
+        dd#wind_direction #{weather.wind.deg}&deg;

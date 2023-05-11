@@ -198,6 +198,11 @@ section {
     grid-row: 2/4;
   }
 
+  #weather_icon {
+    width: 80%;
+    padding-bottom: 20px
+  }
+
   #weather_info { font-size: 1.1rem; }
 
 }
@@ -209,6 +214,10 @@ section {
   main {
     grid-template-columns: repeat(5, 200px);
     grid-template-rows: repeat(3, 170px);
+  }
+
+  #weather_icon {
+    width: 80%;
   }
 
   .dickbutt { font-size: 1.1rem; }
