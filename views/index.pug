@@ -22,9 +22,20 @@ block content
         ⠈⠢⠔⠁⠀⠀⠀⠸⡉⠒⢀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠑⣄⠜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
-    section.date-wrapper
-      div#clock
-      div#date
+    section#date-wrapper.date-wrapper
+      span#clock
+      span#date
+      script.
+        const clock = document.getElementById('clock');
+        const date = document.getElementById('date');
+        function setTime() {
+          const now = new Date();
+          clock.innerHTML = now.toLocaleTimeString();
+          date.innerHTML = now.toDateString();
+        };
+        setTime();
+        setInterval(setTime, 1000);
+
 
     section.links-wrapper#personal-links
       a(href="https://yewtu.be/") Invidious
@@ -33,17 +44,22 @@ block content
       a(href="https://lutris.net/games") Lutris List
 
     section.links-wrapper#tech-links
-      a(href="https://search.nixos.org/packages") Nix Search
+      a(href="https://search.nixos.org/") Nix Search
       a(href="https://nixos.wiki/") Nixos Wiki
-      a(href="https://wiki.archlinux.org") ArchWiki
+      a(href="https://github.com/nix-community/awesome-nix") Awesome Nix
       a(href="https://hub.docker.com/") Docker Hub
 
     section.bonsai-wrapper
       pre#bonsai
+      script.
+        const bonsais = [
+          "    #o#\n  ####o#\n #o# \\#|_#,#\n###\\ |/   #o#\n # {}{      #\n    }{{\n   ,'  `",
+          "    ,\\\n    # (_\n      _)\\##\n  ###/((_\n       ))\\####\n     _((\n####/  )\\\n     ,;;\"`;,",
+          "   ###o\n #o# \\#,_#,#\n###\\ |/   #o#\n # {}{      #\n    }{{\n   ,'  `"
+        ];
+        document.getElementById("bonsai").innerHTML = bonsais[Math.floor(Math.random() * bonsais.length)];
 
     section.weather-wrapper
       p /// Under Construction ///
       br
       span This is going to be a weather module
-
-    script(type='module' src='/javascripts/script.js')
