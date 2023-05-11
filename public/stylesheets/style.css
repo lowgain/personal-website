@@ -16,10 +16,12 @@
 }
 
 html {
-  font-family: FiraCode, Ubuntu Mono, Consolas, Monospace;
+  font-family: FiraCode Nerd Font Mono, Ubuntu Mono, Consolas, Monospace;
   font-size: 1.5rem;
   color: var(--fg-color);
+  scrollbar-width: none;
 }
+html::-webkit-scrollbar { display: none; }
 
 body {
   background: var(--bg-color) url("/images/background.png") no-repeat center fixed;
@@ -76,6 +78,7 @@ section {
 .dickbutt {
   text-align: center;
   color: var(--green);
+  font-size: 0.6rem;
 }
 
 .date-wrapper {
@@ -85,9 +88,7 @@ section {
   align-items: center;
 }
 
-#clock { font-size: 3rem; }
-
-#date { font-size: 2.25rem; }
+#clock { font-size: 1.5rem; }
 
 .bonsai-wrapper {
   display: flex;
@@ -100,9 +101,45 @@ section {
   color: var(--green);
 }
 
+.weather-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.weather-wrapper img {
+  width: 60%;
+}
+
+#weather_desc {
+  font-size: 1.4rem;
+  font-weight: bold
+}
+
+#weather_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+#weather_info dt {
+  text-align: right;
+  margin-right: 10px;
+}
+#weather_info dt::after {
+  content: ":";
+}
+
+#weather_info dd {
+  text-align: center;
+}
+
 @media only screen and ( min-width: 1000px ) and ( min-aspect-ratio: 4/3 ) {
   
-  html { font-size: 0.6rem; }
+  html { font-size: 0.6em; }
 
   main {
     margin: auto;
@@ -119,6 +156,8 @@ section {
     grid-column: 1/3;
     overflow: hidden;
   }
+
+  .dickbutt { font-size: 1rem; }
 
   .links-wrapper {
     display: grid;
@@ -149,21 +188,29 @@ section {
     grid-row: 2;
   }
 
+  #clock { font-size: 3rem; }
+
+  #date { font-size: 2rem; }
+
   .weather-wrapper {
     grid-column: 1/3;
     grid-column: 5;
     grid-row: 2/4;
   }
 
+  #weather_info { font-size: 1.1rem; }
+
 }
 
 @media only screen and ( min-width: 1000px ) and ( min-aspect-ratio: 16/9 ) {
 
-  html { font-size: 0.9rem; }
+  html { font-size: 0.8rem; }
   
   main {
     grid-template-columns: repeat(5, 200px);
     grid-template-rows: repeat(3, 170px);
   }
+
+  .dickbutt { font-size: 1.1rem; }
 
 }
